@@ -34,7 +34,7 @@ jobs:
           tags: elliotkongu/my-image:${{ github.run_number}}
 
       - name: Upload Artifact
-        uses: actions/uokiad-artifact@v2
+        uses: actions/upload-artifact@v2
         with:
           name: app.jar
           path: target/*.jar
