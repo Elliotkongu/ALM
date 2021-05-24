@@ -20,8 +20,8 @@ public class GameController {
         return service.getGames();
     }
 
-    @PostMapping("/games")
-    public void saveNewFood(@RequestBody Game game) {
+    @PostMapping("/addgame")
+    public void saveNewGame(@RequestBody Game game) {
         service.saveNewGame(game);
     }
 

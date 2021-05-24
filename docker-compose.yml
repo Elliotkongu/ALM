@@ -1,0 +1,37 @@
+version: '3.1'
+
+services:
+  myapp:
+    build: .
+    ports:
+      - 8080
+    volumes:
+      - /data/db
+    environment:
+      MY_DATABASE_HOST: mongo
+      MY_DATABASE_USER: root
+      MY_DATABASE_PASSWORD: admin
+      MY_DATABASE_NAME: MyAppDB
+      MY_DATABASE_PORT: 27017
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+#    restart: always
+    ports:
+    - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: admin
+
+  mongo-express:
+    image: mongo-express
+#    restart: always
+    ports:
+    - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+    depends_on:
+      - mongo

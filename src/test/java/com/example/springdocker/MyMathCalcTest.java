@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MyMathCalcTest {
-    private MyMathCalc mathCalc = new MyMathCalc();
+    private final MyMathCalc mathCalc = new MyMathCalc();
     int a = 5;
     int b = 2;
     int o = 0;
